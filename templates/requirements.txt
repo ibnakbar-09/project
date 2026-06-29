@@ -1,6 +1,4 @@
-  Flask
-PyPDF2
-python-docx
-openai
-python-dotenv
-gunicorn
+Flask==3.0.0
+gunicorn==21.2.0
+PyPDF2==3.0.1
+python-docx==1.1.0
