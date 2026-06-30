@@ -1,28 +1,105 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - AI Resume Analyzer</title>
     <style>
-        body { font-family: Arial; background: #f0f2f5; margin: 0; padding: 20px; }
-     .nav { background: white; padding: 15px 30px; border-radius: 10px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-     .container { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-     .result { margin-top: 25px; padding: 20px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #1877f2; }
-        button { padding: 10px 20px; background: #1877f2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        * { box-sizing: border-box; }
+        body {
+            font-family: Arial;
+            background: #f0f2f5;
+            margin: 0;
+            padding: 10px;
+        }
+   .nav {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+   .nav h2 { margin: 0; font-size: 20px; }
+   .container {
+            background: white;
+            padding: 20px 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+   .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1877f2;
+        }
+        button {
+            padding: 12px 20px;
+            background: #1877f2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
         button:hover { background: #166fe5; }
-     .skill { background: #d1e7ff; color: #004085; padding: 6px 12px; margin: 5px; border-radius: 15px; display: inline-block; font-size: 14px; }
-     .missing { background: #f8d7da; color: #721c24; padding: 6px 12px; margin: 5px; border-radius: 15px; display: inline-block; font-size: 14px; }
-        input[type="file"] { margin: 15px 0; }
-        h3 { color: #333; margin-top: 20px; }
-        ol li { margin: 10px 0; line-height: 1.6; }
-     .flash { color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+   .nav button { width: auto; padding: 8px 16px; font-size: 14px; }
+   .skill {
+            background: #d1e7ff;
+            color: #004085;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 13px;
+        }
+   .missing {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 13px;
+        }
+        input[type="file"] {
+            margin: 15px 0;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        h3 { color: #333; margin-top: 20px; font-size: 18px; }
+        ol li { margin: 10px 0; line-height: 1.6; font-size: 15px; }
+   .flash {
+            color: #dc3545;
+            background: #f8d7da;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        p { font-size: 15px; }
+
+        @media only screen and (max-width: 600px) {
+       .nav { flex-direction: column; gap: 10px; text-align: center; }
+       .nav h2 { font-size: 18px; }
+            h3 { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
     <div class="nav">
         <h2>AI Resume Analyzer</h2>
         <div>
-            <span>Welcome, <b>{{ username }}</b>!</span>
-            <a href="/logout" style="margin-left: 20px;"><button>Logout</button></a>
+            <span>Welcome, <b>{{ username }}</b></span>
+            <a href="/logout" style="margin-left: 10px;"><button>Logout</button></a>
         </div>
     </div>
     <div class="container">
@@ -33,7 +110,6 @@
         {% endwith %}
         <form method="POST" enctype="multipart/form-data">
             <input type="file" name="file" accept=".pdf,.docx" required>
-            <br>
             <button type="submit">Analyze Resume</button>
         </form>
         {% if skills %}
@@ -45,7 +121,11 @@
                 <p>Koi skill detect nahi hui</p>
             {% endif %}
             <h3>⚠️ Suggested Skills to Add:</h3>
-            {% for skill in missing %}<span class="missing">{{ skill }}</span>{% endfor %}
+            {% if missing %}
+                {% for skill in missing %}<span class="missing">{{ skill }}</span>{% endfor %}
+            {% else %}
+                <p>Bahut badhiya! Koi skill missing nahi hai</p>
+            {% endif %}
             <h3>🎯 Probable Interview Questions:</h3>
             <ol>
             {% for q in questions %}<li>{{ q }}</li>{% endfor %}
