@@ -143,7 +143,12 @@ def dashboard():
         else:
             flash('Only PDF or DOCX files allowed!')
 
-    return render_template('dashboard.html', username=session['username'])
+    # YAHAN CHANGE KIYA - Default values bhejo
+    return render_template('dashboard.html',
+                         username=session['username'],
+                         skills=[],
+                         missing=[],
+                         questions=[])
 
 @app.route('/logout')
 def logout():
