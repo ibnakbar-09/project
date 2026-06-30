@@ -12,7 +12,7 @@
             margin: 0;
             padding: 10px;
         }
-    .nav {
+   .nav {
             background: white;
             padding: 12px 15px;
             border-radius: 10px;
@@ -23,14 +23,14 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             flex-wrap: wrap;
         }
-    .nav h2 { margin: 0; font-size: 20px; }
-    .container {
+   .nav h2 { margin: 0; font-size: 20px; }
+   .container {
             background: white;
             padding: 20px 15px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-    .result {
+   .result {
             margin-top: 20px;
             padding: 15px;
             background: #f8f9fa;
@@ -48,8 +48,8 @@
             width: 100%;
         }
         button:hover { background: #166fe5; }
-    .nav button { width: auto; padding: 8px 16px; font-size: 14px; }
-    .skill {
+   .nav button { width: auto; padding: 8px 16px; font-size: 14px; }
+   .skill {
             background: #d1e7ff;
             color: #004085;
             padding: 6px 12px;
@@ -58,7 +58,7 @@
             display: inline-block;
             font-size: 13px;
         }
-    .missing {
+   .missing {
             background: #f8d7da;
             color: #721c24;
             padding: 6px 12px;
@@ -77,7 +77,7 @@
         }
         h3 { color: #333; margin-top: 20px; font-size: 18px; }
         ol li { margin: 10px 0; line-height: 1.6; font-size: 15px; }
-    .flash {
+   .flash {
             color: #dc3545;
             background: #f8d7da;
             padding: 10px;
@@ -88,8 +88,8 @@
         p { font-size: 15px; }
 
         @media only screen and (max-width: 600px) {
-        .nav { flex-direction: column; gap: 10px; text-align: center; }
-        .nav h2 { font-size: 18px; }
+       .nav { flex-direction: column; gap: 10px; text-align: center; }
+       .nav h2 { font-size: 18px; }
             h3 { font-size: 16px; }
         }
     </style>
@@ -101,7 +101,6 @@
             <span>Welcome, <b>{{ username }}</b></span>
             <a href="/logout" style="margin-left: 10px;"><button>Logout</button></a>
         </div>
-    </div>
     <div class="container">
         <h3>Upload Your Resume</h3>
         <p>PDF ya DOCX file upload karo analysis ke liye</p>
@@ -133,5 +132,53 @@
         </div>
         {% endif %}
     </div>
+<!-- Team Footer Section -->
+<div style="width:90%; margin:35px auto; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+
+    <!-- Project Guide -->
+    <div style="flex:1; min-width:260px; background:#ffffff; border-radius:15px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.12); border-top:5px solid #2563eb; transition:0.3s;">
+        <div style="width:75px; height:75px; margin:auto; border-radius:50%; background:#2563eb; color:white; display:flex; align-items:center; justify-content:center; font-size:32px;">
+            👨‍🏫
+        </div>
+        <h2 style="margin-top:18px; font-size:28px; font-weight:bold; color:#111;">
+            Avinash Kumar
+        </h2>
+        <p style="font-size:18px; color:#2563eb; font-weight:bold; margin-top:8px;">
+            Project Guide
+        </p>
+    </div>
+
+    <!-- Developer -->
+    <div style="flex:1; min-width:260px; background:#ffffff; border-radius:15px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.12); border-top:5px solid #10b981;">
+        <div style="width:75px; height:75px; margin:auto; border-radius:50%; background:#10b981; color:white; display:flex; align-items:center; justify-content:center; font-size:32px;">
+            💻
+        </div>
+        <h2 style="margin-top:18px; font-size:28px; font-weight:bold; color:#111;">
+            Ashif Raza
+        </h2>
+        <p style="font-size:18px; color:#10b981; font-weight:bold; margin-top:8px;">
+            Code Developer
+        </p>
+    </div>
+
+    <!-- Support -->
+    <div style="flex:1; min-width:260px; background:#ffffff; border-radius:15px; padding:25px; text-align:center; box-shadow:0 6px 18px rgba(0,0,0,0.12); border-top:5px solid #f59e0b;">
+        <div style="width:75px; height:75px; margin:auto; border-radius:50%; background:#f59e0b; color:white; display:flex; align-items:center; justify-content:center; font-size:32px;">
+            💡
+        </div>
+        <h2 style="margin-top:18px; font-size:28px; font-weight:bold; color:#111;">
+            Shaurya Kumar
+        </h2>
+        <p style="font-size:18px; color:#f59e0b; font-weight:bold; margin-top:8px;">
+            Help in Thinking 😀
+        </p>
+    </div>
+
+</div>
+
+<!-- Copyright -->
+<div style="width:90%; margin:20px auto 30px; text-align:center; color:#666; font-size:15px;">
+    © 2026 AI Resume Analyzer | Designed with ❤️ by Team
+</div>
 </body>
 </html>
